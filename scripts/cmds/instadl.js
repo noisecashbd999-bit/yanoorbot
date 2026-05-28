@@ -8,34 +8,34 @@ const baseApiUrl = async () => {
 
 module.exports = {
         config: {
-                name: "pinterestdl",
-                aliases: ["pindl"],
+                name: "instagramdl",
+                aliases: ["igdl", "instadl"],
                 version: "1.7",
                 author: "MahMUD",
                 countDown: 10,
                 role: 0,
                 description: {
-                        bn: "পিন্টারেস্ট ভিডিও ডাউনলোড করুন",
-                        en: "Download videos from Pinterest"
+                        bn: "ইনস্টাগ্রাম ভিডিও/রিলস ডাউনলোড করুন",
+                        en: "Download videos or Reels from Instagram"
                 },
                 category: "media",
                 guide: {
-                        bn: '   {pn} <লিংক>: পিন্টারেস্ট ভিডিওর লিংক দিন'
+                        bn: '   {pn} <লিংক>: ইনস্টাগ্রাম ভিডিও বা রিলসের লিংক দিন'
                                 + '\n   অথবা ভিডিও লিংকে রিপ্লাই দিয়ে {pn} লিখুন'
-                                + '\n\nSupported Platforms:\n• Pinterest / pin.it',
-                        en: '   {pn} <link>: Provide the Pinterest video link'
+                                + '\n\nSupported Platforms:\n• Instagram / Reels',
+                        en: '   {pn} <link>: Provide the Instagram video/Reels link'
                                 + '\n   Or reply to a link with {pn}'
-                                + '\n\nSupported Platforms:\n• Pinterest / pin.it'
+                                + '\n\nSupported Platforms:\n• Instagram / Reels'
                 }
         },
 
         langs: {
                 bn: {
-                        noLink: "× বেবি, একটি সঠিক পিন্টারেস্ট ভিডিও লিংক দাও অথবা লিংকে রিপ্লাই করো!",
+                        noLink: "× বেবি, একটি সঠিক ইনস্টাগ্রাম ভিডিও লিংক দাও অথবা লিংকে রিপ্লাই করো!",
                         error: "× ভিডিও ডাউনলোড করতে সমস্যা হয়েছে: %1। প্রয়োজনে Contact MahMUD।\n•WhatsApp: 01836298139"
                 },
                 en: {
-                        noLink: "× Baby, please provide a valid Pinterest video link or reply to one!",
+                        noLink: "× Baby, please provide a valid Instagram video link or reply to one!",
                         error: "× Download error: %1. Contact MahMUD for help.\n•WhatsApp: 01836298139"
                 }
         },
@@ -52,15 +52,12 @@ module.exports = {
                         return message.reply(getLang("noLink"));
                 }
 
-                if (!(
-                        mahmud.includes("pinterest.com") || 
-                        mahmud.includes("pin.it")
-                )) {
+                if (!mahmud.includes("instagram.com")) {
                         return message.reply(getLang("noLink"));
                 }
 
                 if (!fs.existsSync(__dirname + "/cache")) fs.mkdirSync(__dirname + "/cache");
-                const path = __dirname + `/cache/pindl_${Date.now()}.mp4`;
+                const path = __dirname + `/cache/igdl_${Date.now()}.mp4`;
 
                 try {
                         api.setMessageReaction("🐤", event.messageID, () => {}, true);
@@ -95,7 +92,7 @@ module.exports = {
                         );
 
                 } catch (err) {
-                        console.error("Error in pinterestdl command:", err);
+                        console.error("Error in instagramdl command:", err);
                         api.setMessageReaction("❎", event.messageID, () => {}, true);
                         if (fs.existsSync(path)) fs.unlinkSync(path);
                         return message.reply(getLang("error", err.message));
