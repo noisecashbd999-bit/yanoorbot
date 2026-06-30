@@ -1,7 +1,7 @@
 module.exports = {
         config: {
                 name: "fork",
-                version: "1.7",
+                version: "2.7",
                 author: "MahMUD",
                 countDown: 5,
                 role: 0,
@@ -24,13 +24,19 @@ module.exports = {
                         return api.sendMessage("You are not authorized to change the author name.", event.threadID, event.messageID);
                 }
 
-                const githubLink = "https://github.com/mahmudx7/hinata-Bot-V3";
+                const githubLink = "https://github.com/mahmudx7/Hinata-Bot-v3";
                 const youtubeLink = "https://youtu.be/zJsemXLaRbY?si=8O-O-nSXgQlsNvnU";
 
-                const response = `✨ | Fork this project here:\n\n` +
-                                 `${githubLink}\n\n` +
-                                 `• Bot make tutorial video:\n` +
-                                 `${youtubeLink}`;
+                const response = `✓ | Fork this project here:\n` +
+                                 `•${githubLink}\n\n` +
+                                 `#Tutorial video:\n` +
+                                 `•${youtubeLink}\n\n` +
+                                 `#Updated\n` +
+                                 `• Extreme performance\n` +
+                                 `• Now using mahmud-fca log out issue solved\n` +
+                                 `• Id suspended Issue almost fix and run long time.\n` +
+                                 `• added new more premium command\n\n` +
+                                 `Note: If you want to use mahmud-fca please install mahmud-fca@latest`;
 
                 return api.sendMessage(response, event.threadID, event.messageID);
         }
