@@ -8,7 +8,7 @@
 </h1>
 
 <p align="center">
-  <b>🤖 Facebook Messenger Bot | Auto Reply Bot | AI Chatbot | Hinata Bot V3</b><br>
+  <b>• Facebook Messenger Bot | Auto Reply Bot | AI Chatbot | Hinata Bot V3</b><br>
   <i>A powerful, free, open-source Facebook Messenger bot built with Node.js</i>
 </p>
 
